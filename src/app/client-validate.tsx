@@ -20,7 +20,7 @@ export function ClientValidateForm() {
   })
 
   function onSubmit(values: FormType) {
-    toast(`You submitted: ${values.name}`)
+    toast.success(`You submitted: ${JSON.stringify(values, null, 2)}`)
   }
 
   return (
@@ -31,10 +31,10 @@ export function ClientValidateForm() {
           name="name"
           render={({ field }) => (
             <FormItem className="mb-4">
+              <FormMessage />
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />

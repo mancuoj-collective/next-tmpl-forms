@@ -10,7 +10,7 @@ export function AppProvider({ children }: React.PropsWithChildren) {
     <Provider>
       <ThemeScript />
       {children}
-      <Toaster richColors />
+      <Toaster richColors position="bottom-center" />
     </Provider>
   )
 }
