@@ -1,3 +1,4 @@
+import { BothValidateForm } from './both-validate'
 import { ClientValidateForm } from './client-validate'
 import { ServerValidateForm } from './server-validate'
 
@@ -7,6 +8,7 @@ export default async function Page() {
       <div className="flex gap-8">
         <ClientValidateForm />
         <ServerValidateForm />
+        <BothValidateForm />
       </div>
       <h1>Try to disable JavaScript</h1>
     </div>
