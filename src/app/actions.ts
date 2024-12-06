@@ -18,7 +18,7 @@ export async function formValidateAction(prevState: State, formData: FormData) {
 
   if (!parsed.success) {
     return {
-      message: 'Invalid form data',
+      message: 'Server:Invalid form data',
       errors: parsed.error.flatten().fieldErrors,
       data: { ...prevState.data, ...data },
     }
