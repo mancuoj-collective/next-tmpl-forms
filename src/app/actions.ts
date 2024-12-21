@@ -3,6 +3,7 @@
 import { formSchema } from './schema'
 
 export type State = {
+  success: boolean
   message: string | null
   errors?: {
     name?: string[]
@@ -13,18 +14,28 @@ export type State = {
 }
 
 export async function formValidateAction(prevState: State, formData: FormData) {
-  const data = Object.fromEntries(formData.entries())
-  const parsed = formSchema.safeParse(data)
+  try {
+    const data = Object.fromEntries(formData.entries())
+    const parsed = formSchema.safeParse(data)
 
-  if (!parsed.success) {
+    if (!parsed.success) {
+      return {
+        success: false,
+        message: 'Server: Invalid form data',
+        errors: parsed.error.flatten().fieldErrors,
+        data: { ...prevState.data, ...data },
+      }
+    }
+
     return {
-      message: 'Server:Invalid form data',
-      errors: parsed.error.flatten().fieldErrors,
-      data: { ...prevState.data, ...data },
+      success: true,
+      message: `Server: You submitted ${JSON.stringify(parsed.data, null, 2)}`,
     }
   }
-
-  return {
-    message: `Server: You submitted ${JSON.stringify(parsed.data, null, 2)}`,
+  catch {
+    return {
+      success: false,
+      message: 'Server: Invalid form data',
+    }
   }
 }

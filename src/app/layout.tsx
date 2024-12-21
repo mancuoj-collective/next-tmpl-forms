@@ -23,7 +23,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', inter.variable, lora.variable)}>
-        {/* TODO: remove umami if not needed */}
         {env.NODE_ENV === 'production' && (
           <Script
             src="https://a.mancuoj.me/script.js"
