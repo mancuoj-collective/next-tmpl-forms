@@ -59,7 +59,7 @@ export default {
   },
   plugins: [
     iconsPlugin({
-      collections: getIconCollections(['mingcute', 'simple-icons']),
+      collections: getIconCollections(['carbon', 'simple-icons']),
       scale: 1.15,
     }),
     require('tailwindcss-animate'),

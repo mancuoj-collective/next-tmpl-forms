@@ -6,14 +6,14 @@ import { ServerValidateForm } from './server-validate'
 
 export default async function Page() {
   return (
-    <div className="flex min-h-svh flex-col items-center gap-10 p-8 md:py-48">
-      <div className="flex w-full flex-col gap-8 md:flex-row">
+    <div className="mx-auto flex min-h-svh max-w-xl flex-col justify-center p-8">
+      <div className="flex w-full flex-col gap-4">
         <ClientValidateForm />
         <ServerValidateForm />
         <BothValidateForm />
       </div>
-      <div className="space-x-2">
-        <a className="i-mingcute-github-line" href="https://github.com/mancuoj-collective/next-tmpl-forms" />
+      <div className="mt-8 space-x-2 text-end">
+        <a className="i-carbon-logo-github" href="https://github.com/mancuoj-collective/next-tmpl-forms" />
         <DarkModeToggle />
       </div>
     </div>
